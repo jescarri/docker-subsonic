@@ -132,6 +132,8 @@ if [ -L $0 ] && ([ -e /bin/readlink ] || [ -e /usr/bin/readlink ]); then
     cd $(dirname $(readlink $0))
 fi
 
+ln -s /usr/bin/ffmpeg /var/subsonic/transcode/ffmpeg
+
 cd /usr/share/subsonic
 
 ${JAVA} -Xmx${SUBSONIC_MAX_MEMORY}m \
