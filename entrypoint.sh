@@ -123,6 +123,8 @@ fi
 
 # Create Subsonic home directory.
 mkdir -p ${SUBSONIC_HOME}
+mkdir -p ${SUBSONIC_HOME}/transcode
+
 mkdir -p ${SUBSONIC_DEFAULT_PLAYLIST_FOLDER}
 LOG=${SUBSONIC_HOME}/subsonic_sh.log
 rm -f ${LOG}
@@ -133,6 +135,7 @@ if [ -L $0 ] && ([ -e /bin/readlink ] || [ -e /usr/bin/readlink ]); then
 fi
 
 ln -s /usr/bin/ffmpeg /var/subsonic/transcode/ffmpeg
+ln -s /usr/bin/lame /var/subsonic/transcode/lame
 
 cd /usr/share/subsonic
 
