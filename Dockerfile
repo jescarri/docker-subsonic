@@ -1,4 +1,6 @@
 FROM debian:buster
+RUN groupadd -g 1001 subsonic && \
+    useradd -g subsonic -u 1001 -m -d /home/subsonic subsonic
 
 RUN apt-get update && \
     apt-get -y install curl wget openjdk-8-jre-headless ffmpeg && \
@@ -8,6 +10,7 @@ RUN wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/
     chmod +x /usr/local/bin/dumb-init
 
 COPY entrypoint.sh /entrypoint.sh
+
 ENTRYPOINT ["/usr/local/bin/dumb-init","/entrypoint.sh"]
 
 VOLUME ["/var/subsonic"]
