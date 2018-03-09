@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM ubuntu:18.04
 RUN groupadd -g 1001 subsonic && \
     useradd -g subsonic -u 1001 -m -d /home/subsonic subsonic
 
